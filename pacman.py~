@@ -45,8 +45,9 @@ class Player(pygame.sprite.Sprite):
 class GameSpace:
 	def main(self):
 		pygame.init()
-
-		pygame.mixer.pre_init(44100, -16, 2, 2048) #initializing sound
+		
+		pygame.init()
+		pygame.mixer.pre_init(44100, -16, 2, 2048)
 		
 		winTitle = pygame.display.set_caption("Paradigms Final Project: Multiplayer Pacman")
 		
