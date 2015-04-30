@@ -23,16 +23,16 @@ class Player(pygame.sprite.Sprite):
 				
 	def move(self, keycode):
 		if (keycode == K_RIGHT):
-			self.rect = self.rect.move(2, 0)
+			self.rect = self.rect.move(4, 0)
 			
 		if (keycode == K_LEFT):
-			self.rect = self.rect.move(-2,0)
+			self.rect = self.rect.move(-4,0)
 			
 		if (keycode == K_DOWN):
-			self.rect = self.rect.move(0,2)
+			self.rect = self.rect.move(0,4)
 			
 		if (keycode == K_UP):
-			self.rect = self.rect.move(0,-2)
+			self.rect = self.rect.move(0,-4)
 		return
 		
 	def tick(self):
