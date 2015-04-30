@@ -15,15 +15,20 @@ class Player(pygame.sprite.Sprite):
 		self.gs = gs
 		FILE = "images/pacman.png"
 		self.image = pygame.image.load(FILE)
-		self.image = pygame.transform.scale(self.image, (int(25),int(25)))
+		self.image = pygame.transform.scale(self.image, (int(30),int(30)))
 		
 		self.rect = self.image.get_rect()
 		self.rect.x = 396
-		self.rect.y = 398
+		self.rect.y = 393
+
+	def validMove(self, x, y):
+		return 1
+		
 				
 	def move(self, keycode):
 		if (keycode == K_RIGHT):
-			self.rect = self.rect.move(4, 0)
+			if self.validMove(self.rect.x+4, self.rect.y):
+				self.rect = self.rect.move(4, 0)
 			
 		if (keycode == K_LEFT):
 			self.rect = self.rect.move(-4,0)
@@ -37,8 +42,7 @@ class Player(pygame.sprite.Sprite):
 		
 	def tick(self):
 
-		#mx, my = pygame.mouse.get_pos()
-		#print mx, my
+		print self.rect.x, self.rect.y
 
 		return
 		
