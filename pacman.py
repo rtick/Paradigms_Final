@@ -14,13 +14,19 @@ class Player(pygame.sprite.Sprite):
 	def __init__(self, gs=None):
 		self.gs = gs
 		FILE = "images/pacman.png"
-		self.image = pygame.image.load(FILE)
+		FILE2 = "images/packman_full.png"
+		self.image = pygame.image.load(FILE) #filled in pacman image
+		self.image_full = pygame.image.load(FILE2)
 		self.image = pygame.transform.scale(self.image, (int(30),int(30)))
-		self.orig_image = self.image
+		self.image_full = pygame.transform.scale(self.image_full, (int(30),int(30)))
+		self.orig_image = self.image # hold on to original pacman image facing right
 		
 		self.rect = self.image.get_rect()
 		self.rect.x = 396
 		self.rect.y = 393
+		self.orientation = "right"
+		self.last_key = "right"
+		self.count = 0
 
 	def validMove(self, x, y):
 		#lower right half of board start
@@ -111,29 +117,68 @@ class Player(pygame.sprite.Sprite):
 				
 	def move(self, keycode):
 		if (keycode == K_RIGHT):
+			self.last_key = "right"
 			if self.validMove(self.rect.x+4, self.rect.y):
+				if self.count<1:
+					self.count = self.count+1
+				else:
+					self.count = 0
 				self.rect = self.rect.move(4, 0)
-				self.image = self.orig_image
+				if self.orientation != "right":
+					self.image = self.orig_image
+					self.orientation = "right"
+				elif self.count==1:
+					self.image = self.image_full
+					self.orientation = "full"
 			
 		if (keycode == K_LEFT):
+			self.last_key = "left"
 			if self.validMove(self.rect.x-4, self.rect.y):
+				if self.count<1:
+					self.count = self.count+1
+				else:
+					self.count = 0
 				self.rect = self.rect.move(-4,0)
-				self.image = pygame.transform.rotate(self.orig_image, 180)
+				if self.orientation != "left":
+					self.image = pygame.transform.rotate(self.orig_image, 180)
+					self.orientation = "left"
+				elif self.count==1:
+					self.image = self.image_full
+					self.orientation = "full"
 			
 		if (keycode == K_DOWN):
+			self.last_key = "down"
 			if self.validMove(self.rect.x, self.rect.y+4):
+				if self.count<1:
+					self.count = self.count+1
+				else:
+					self.count = 0
 				self.rect = self.rect.move(0,4)
-				self.image = pygame.transform.rotate(self.orig_image, 270)
+				if self.orientation!="down":
+					self.image = pygame.transform.rotate(self.orig_image, 270)
+					self.orientation = "down"
+				elif self.count == 1:
+					self.image = self.image_full
+					self.orientation = "full"
 			
 		if (keycode == K_UP):
+			self.last_key = "left"
 			if self.validMove(self.rect.x, self.rect.y-4):
+				if self.count<1:
+					self.count = self.count+1
+				else:
+					self.count = 0
 				self.rect = self.rect.move(0,-4)
-				self.image = pygame.transform.rotate(self.orig_image, 90)
+				if self.orientation!="up":
+					self.image = pygame.transform.rotate(self.orig_image, 90)
+					self.orientation="up"
+				elif self.count == 1:
+					self.image = self.image_full
+					self.orientation = "full"
 		return
 		
 	def tick(self):
-
-		print self.rect.x, self.rect.y
+		#print self.rect.x, self.rect.y
 
 		return
 		
