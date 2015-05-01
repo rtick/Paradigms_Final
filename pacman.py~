@@ -44,7 +44,7 @@ class Player(pygame.sprite.Sprite):
 		elif (x<416 and x>356 and y<513 and y>421) or (y>393 and y<453 and x>296 and x<476):
 			return 0
 		#lower right half of board end
-		#lower left half of board
+		#lower left half of board start
 		elif ((x<= 292 and x>= 237) and (y>= 332 and y <=449)):
 			return 0
 		elif ((x>=237 and x<=355) and (y>=454 and y<=512)):
@@ -65,7 +65,43 @@ class Player(pygame.sprite.Sprite):
 			return 0
 		elif ((x>= 137 and x<=351) and (y<=632 and y>=578)):
 			return 0
-		#end lower left half of board
+		#lower left half of board end
+		#middle of board start
+		elif ((x>=297 and x<=471) and (y>=274 and y<=392)):
+			return 0
+		#middle of board end
+		#upper board start
+		elif ((x>= 237 and x <= 291) and (y<=326 and y>=154)):
+			return 0
+		elif ((x >=237 and x<= 349) and (y>=216 and y <=268)):
+			return 0
+		elif ( x <= 131):
+			return 0
+		elif ((x>=137 and x <=231) and (y<=208 and y>=154)):
+			return 0
+		elif ((x>=137 and x<=231)and (y<=148 and y>=74)):
+			return 0
+		elif ((x>=237 and x<=351) and (y<=148 and y>=74)):
+			return 0
+		elif (y<=68):
+			return 0
+		elif ((x>=357 and x<= 411) and (y<= 148)):
+			return 0
+		elif ((x>=417 and x<=531) and (y<=148 and y>=74)):
+			return 0
+		elif ((x>=537 and x<=631) and (y<= 148 and y>=74)):
+			return 0
+		elif ((x>=537 and x<=631) and (y>=154 and y<=208)):
+			return 0
+		elif ((x>=297 and x<=471) and (y>=154 and y<=212)):
+			return 0
+		elif ((x>=357 and x<=411) and (y<=268 and y>=176)):
+			return 0
+		elif ((x>=477 and x<=531) and (y>=154 and y<=328)):
+			return 0
+		elif ((x>=417 and x<=512) and (y>=214 and y<=268)):
+			return 0
+		#upper board end
 		else:
 			return 1
 		
