@@ -8,6 +8,27 @@ class Background(pygame.sprite.Sprite):
 		self.image = pygame.image.load(FILE)
 		self.rect = self.image.get_rect()
 
+class Dot_Small(pygame.sprite.Sprite):
+	def __init__(self, gs=None):
+		self.gs = gs
+		FILE = "images/dot.png"
+		self.image = pygame.image.load(FILE)
+		self.image = pygame.transform.scale(self.image, (int(10),int(10)))
+		self.rect = self.image.get_rect()
+		
+		self.rect.x = 145
+		self.rect.y = 85
+
+class Dot_Big(pygame.sprite.Sprite):
+	def __init__(self, gs=None):
+		self.gs = gs
+		FILE = "images/dot.png"
+		self.image = pygame.image.load(FILE)
+		self.image = pygame.transform.scale(self.image, (int(20),int(20)))
+		self.rect = self.image.get_rect()
+		
+		self.rect.x = 143
+		self.rect.y = 82
 		
 class Player(pygame.sprite.Sprite):
 		
@@ -203,6 +224,9 @@ class GameSpace:
 		
 		self.player = Player(self)
 		self.background = Background(self)
+		self.dot_small = Dot_Small(self)
+		self.dot_big = Dot_Big(self)
+		
 		while 1:
 			if pygame.mixer.music.get_busy()==False:
 				pygame.mixer.music.play()
@@ -217,6 +241,83 @@ class GameSpace:
 				
 				self.screen.fill(self.black)	
 				self.screen.blit(self.background.image, self.background.rect)
+				
+				
+				#Placing all dots
+				
+				#Row 1#
+				self.screen.blit(self.dot_small.image, (self.dot_small.rect.x+5, self.dot_small.rect.y+0))
+				self.screen.blit(self.dot_small.image, (self.dot_small.rect.x+37, self.dot_small.rect.y+0))
+				self.screen.blit(self.dot_small.image, (self.dot_small.rect.x+69, self.dot_small.rect.y+0))	
+				self.screen.blit(self.dot_small.image, (self.dot_small.rect.x+101, self.dot_small.rect.y+0))
+				self.screen.blit(self.dot_small.image, (self.dot_small.rect.x+133, self.dot_small.rect.y+0))
+				self.screen.blit(self.dot_small.image, (self.dot_small.rect.x+165, self.dot_small.rect.y+0))
+				self.screen.blit(self.dot_small.image, (self.dot_small.rect.x+189, self.dot_small.rect.y+0))
+				self.screen.blit(self.dot_small.image, (self.dot_small.rect.x+222, self.dot_small.rect.y+0))
+
+				self.screen.blit(self.dot_small.image, (self.dot_small.rect.x+283, self.dot_small.rect.y+0))
+				self.screen.blit(self.dot_small.image, (self.dot_small.rect.x+314, self.dot_small.rect.y+0))
+				self.screen.blit(self.dot_small.image, (self.dot_small.rect.x+314+32, self.dot_small.rect.y+0))
+				self.screen.blit(self.dot_small.image, (self.dot_small.rect.x+314+32*2, self.dot_small.rect.y+0))
+				self.screen.blit(self.dot_small.image, (self.dot_small.rect.x+314+32*3, self.dot_small.rect.y+0))
+				self.screen.blit(self.dot_small.image, (self.dot_small.rect.x+314+32*4, self.dot_small.rect.y+0))
+				self.screen.blit(self.dot_small.image, (self.dot_small.rect.x+308+32*5, self.dot_small.rect.y+0))
+				self.screen.blit(self.dot_small.image, (self.dot_small.rect.x+305+32*6, self.dot_small.rect.y+0))
+				#Row 1 End#
+				#Row 2#
+				self.screen.blit(self.dot_small.image, (self.dot_small.rect.x+5, self.dot_small.rect.y+38))
+				self.screen.blit(self.dot_small.image, (self.dot_small.rect.x+101, self.dot_small.rect.y+38))
+				self.screen.blit(self.dot_small.image, (self.dot_small.rect.x+222, self.dot_small.rect.y+38))
+				self.screen.blit(self.dot_small.image, (self.dot_small.rect.x+283, self.dot_small.rect.y+38))
+				self.screen.blit(self.dot_small.image, (self.dot_small.rect.x+314+32*3, self.dot_small.rect.y+38))
+				self.screen.blit(self.dot_small.image, (self.dot_small.rect.x+305+32*6, self.dot_small.rect.y+38))
+				#Row 2 End#
+				#Row 3#
+				self.screen.blit(self.dot_small.image, (self.dot_small.rect.x+5, self.dot_small.rect.y+77))
+				self.screen.blit(self.dot_small.image, (self.dot_small.rect.x+37, self.dot_small.rect.y+77))
+				self.screen.blit(self.dot_small.image, (self.dot_small.rect.x+69, self.dot_small.rect.y+77))	
+				self.screen.blit(self.dot_small.image, (self.dot_small.rect.x+101, self.dot_small.rect.y+77))
+				self.screen.blit(self.dot_small.image, (self.dot_small.rect.x+133, self.dot_small.rect.y+77))
+				self.screen.blit(self.dot_small.image, (self.dot_small.rect.x+165, self.dot_small.rect.y+77))
+				self.screen.blit(self.dot_small.image, (self.dot_small.rect.x+189, self.dot_small.rect.y+77))
+				self.screen.blit(self.dot_small.image, (self.dot_small.rect.x+222, self.dot_small.rect.y+77))
+				self.screen.blit(self.dot_small.image, (self.dot_small.rect.x+222+32, self.dot_small.rect.y+77))
+				self.screen.blit(self.dot_small.image, (self.dot_small.rect.x+283, self.dot_small.rect.y+77))
+				self.screen.blit(self.dot_small.image, (self.dot_small.rect.x+314, self.dot_small.rect.y+77))
+				self.screen.blit(self.dot_small.image, (self.dot_small.rect.x+314+32, self.dot_small.rect.y+77))
+				self.screen.blit(self.dot_small.image, (self.dot_small.rect.x+314+32*2, self.dot_small.rect.y+77))
+				self.screen.blit(self.dot_small.image, (self.dot_small.rect.x+314+32*3, self.dot_small.rect.y+77))
+				self.screen.blit(self.dot_small.image, (self.dot_small.rect.x+314+32*4, self.dot_small.rect.y+77))
+				self.screen.blit(self.dot_small.image, (self.dot_small.rect.x+308+32*5, self.dot_small.rect.y+77))
+				self.screen.blit(self.dot_small.image, (self.dot_small.rect.x+305+32*6, self.dot_small.rect.y+77))
+				#Row 3 End#
+				#Row 4 Start#
+				self.screen.blit(self.dot_small.image, (self.dot_small.rect.x+5, self.dot_small.rect.y+35*3))	
+				self.screen.blit(self.dot_small.image, (self.dot_small.rect.x+101, self.dot_small.rect.y+35*3))
+				self.screen.blit(self.dot_small.image, (self.dot_small.rect.x+165, self.dot_small.rect.y+35*3))
+				self.screen.blit(self.dot_small.image, (self.dot_small.rect.x+314+32, self.dot_small.rect.y+35*3))
+				self.screen.blit(self.dot_small.image, (self.dot_small.rect.x+314+32*3, self.dot_small.rect.y+35*3))
+				self.screen.blit(self.dot_small.image, (self.dot_small.rect.x+305+32*6, self.dot_small.rect.y+35*3))
+				#Row 4 End#
+				#Row 5 Start#
+				self.screen.blit(self.dot_small.image, (self.dot_small.rect.x+5, self.dot_small.rect.y+33*4))
+				self.screen.blit(self.dot_small.image, (self.dot_small.rect.x+37, self.dot_small.rect.y+33*4))
+				self.screen.blit(self.dot_small.image, (self.dot_small.rect.x+69, self.dot_small.rect.y+33*4))	
+				self.screen.blit(self.dot_small.image, (self.dot_small.rect.x+101, self.dot_small.rect.y+33*4))
+				#self.screen.blit(self.dot_small.image, (self.dot_small.rect.x+133, self.dot_small.rect.y+33*4))
+				self.screen.blit(self.dot_small.image, (self.dot_small.rect.x+165, self.dot_small.rect.y+33*4))
+				self.screen.blit(self.dot_small.image, (self.dot_small.rect.x+189, self.dot_small.rect.y+33*4))
+				self.screen.blit(self.dot_small.image, (self.dot_small.rect.x+222, self.dot_small.rect.y+33*4))
+				#self.screen.blit(self.dot_small.image, (self.dot_small.rect.x+222+32, self.dot_small.rect.y+33*4))
+				self.screen.blit(self.dot_small.image, (self.dot_small.rect.x+283, self.dot_small.rect.y+33*4))
+				self.screen.blit(self.dot_small.image, (self.dot_small.rect.x+314, self.dot_small.rect.y+33*4))
+				self.screen.blit(self.dot_small.image, (self.dot_small.rect.x+314+32, self.dot_small.rect.y+33*4))
+				#self.screen.blit(self.dot_small.image, (self.dot_small.rect.x+314+32*2, self.dot_small.rect.y+33*4))
+				self.screen.blit(self.dot_small.image, (self.dot_small.rect.x+314+32*3, self.dot_small.rect.y+33*4))
+				self.screen.blit(self.dot_small.image, (self.dot_small.rect.x+314+32*4, self.dot_small.rect.y+33*4))
+				self.screen.blit(self.dot_small.image, (self.dot_small.rect.x+308+32*5, self.dot_small.rect.y+33*4))
+				self.screen.blit(self.dot_small.image, (self.dot_small.rect.x+305+32*6, self.dot_small.rect.y+33*4))
+				#Row 5 End#
 				self.screen.blit(self.player.image, self.player.rect)
 			
 				pygame.display.flip()
