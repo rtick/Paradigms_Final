@@ -187,6 +187,7 @@ class GameSpace:
 		pygame.init()
 
 		pygame.mixer.pre_init(44100, -16, 2, 2048) #initializing sound
+		pygame.mixer.music.load('./sounds/siren.wav')
 		
 		winTitle = pygame.display.set_caption("Paradigms Final Project: Multiplayer Pacman")
 		
@@ -202,10 +203,10 @@ class GameSpace:
 		
 		self.player = Player(self)
 		self.background = Background(self)
-		
 		while 1:
+			if pygame.mixer.music.get_busy()==False:
+				pygame.mixer.music.play()
 			self.clock.tick(60)
-			
 			for event in pygame.event.get():
 				if (event.type == KEYDOWN):
 					self.player.move(event.key)
