@@ -187,7 +187,7 @@ class GameSpace:
 		pygame.init()
 
 		pygame.mixer.pre_init(44100, -16, 2, 2048) #initializing sound
-		pygame.mixer.music.load('./sounds/siren.wav')
+		pygame.mixer.music.load('./sounds/adjSiren.wav')
 		
 		winTitle = pygame.display.set_caption("Paradigms Final Project: Multiplayer Pacman")
 		
