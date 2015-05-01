@@ -312,7 +312,7 @@ class GameSpace:
 				self.screen.blit(self.dot_small.image, (self.dot_small.rect.x+283, self.dot_small.rect.y+33*4))
 				self.screen.blit(self.dot_small.image, (self.dot_small.rect.x+314, self.dot_small.rect.y+33*4))
 				self.screen.blit(self.dot_small.image, (self.dot_small.rect.x+314+32, self.dot_small.rect.y+33*4))
-				self.screen.blit(self.dot_small.image, (self.dot_small.rect.x+314+32*2, self.dot_small.rect.y+33*4))
+				#self.screen.blit(self.dot_small.image, (self.dot_small.rect.x+314+32*2, self.dot_small.rect.y+33*4))
 				self.screen.blit(self.dot_small.image, (self.dot_small.rect.x+314+32*3, self.dot_small.rect.y+33*4))
 				self.screen.blit(self.dot_small.image, (self.dot_small.rect.x+314+32*4, self.dot_small.rect.y+33*4))
 				self.screen.blit(self.dot_small.image, (self.dot_small.rect.x+308+32*5, self.dot_small.rect.y+33*4))
